@@ -19,8 +19,12 @@
     top: 18px;
 }
 
+.line:last-child::before {
+    border-bottom: none;
+}
+
 .line-purple::before {
-    border-bottom: solid 4px #F2A4BE;
+    border-bottom: solid 4px #DD0D51;
 }
 
 .line-gray::before {

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useReducer } from "react"
 import { Link, graphql } from "gatsby"
 import Display from "../../components/Display"
+import Button from "../../components/Button"
 import "../../content/assets/dist/tailwind.css"
 import "../../content/assets/style.css"
 const Index = () => {
@@ -20,17 +21,13 @@ const Index = () => {
         state
     }
   }
-  const [state, dispatch] = React.useReducer(reducer, initialState)
-  useEffect(() => {
-    /* let getLast = document.getElementsByClassName("line-purple")
-    getLast[getLast.length - 1]?.classList.add("line-gray")
-    getLast[getLast.length - 1]?.classList.remove("line-purple") */
-  }, [state])
+  const [state, dispatch] = useReducer(reducer, initialState)
+  useEffect(() => {}, [state])
 
   return (
     <>
       <div className="flex justify-end">
-        <div className="flex flex-row justify-between mt-10 w-5/6">
+        <div className="flex flex-row justify-between mt-10 w-5/6 mr-6">
           {array.map((number, index) => {
             let checkState =
               state >= number
@@ -49,15 +46,8 @@ const Index = () => {
           })}{" "}
         </div>
       </div>
-      <Display state={initialState} />
-      <div className="mt-10 flex justify-end">
-        <button
-          onClick={() => dispatch({ type: "increment" })}
-          className="bg-fr w-20 h-10 text-white"
-        >
-          Next
-        </button>
-      </div>
+      <Display state={state} />
+      <Button onClick={() => dispatch({ type: "increment" })} />
     </>
   )
 }

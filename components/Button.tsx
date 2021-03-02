@@ -1,21 +1,17 @@
 import React from "react"
- 
-type IDisplay = {
-  state: number
+
+type IButtons = {
+  onClick: () => void
 }
-const Display = (props: IDisplay) => {
-  
+const Buttons = (props: IButtons) => {
   return (
     <>
-      <div className="mt-10 flex justify-end">
-        <button
-          onClick={() => dispatch({ type: "increment" })}
-          className="bg-fr w-20 h-10 text-white"
-        >
+      <div className="mt-10 flex justify-end mr-10">
+        <button onClick={props.onClick} className="bg-fr w-20 h-10 text-white">
           Next
         </button>
       </div>
     </>
   )
 }
-export default Display
+export default Buttons
