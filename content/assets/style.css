@@ -1,0 +1,28 @@
+.rounded {
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    border-radius: 100rem;
+    padding: 6px 0px 6px 0px;
+}
+
+.line {
+    position: relative;
+}
+
+.line::before {
+    content: '';
+    width: 112px;
+    position: absolute;
+    z-index: 1;
+    left: 44px;
+    top: 18px;
+}
+
+.line-purple::before {
+    border-bottom: solid 4px #F2A4BE;
+}
+
+.line-gray::before {
+    border-bottom: solid 4px #A0AEC0;
+}
